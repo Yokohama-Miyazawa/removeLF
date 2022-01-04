@@ -1,4 +1,4 @@
-# removeLF  
+# [removeLF](https://yokohama-miyazawa.github.io/removeLF/)
 文章から改行(CRLF/LF)を取り除く  
 
 ## 使い方
