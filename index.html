@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>CR and LF remover</title>
+<style>
+.form-table {
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-elem {
+  font-size: 15pt;
+  width: 40em;
+  height: 30em;
+}
+output {
+  background-color: gainsboro;
+}
+#copy{
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+  <form oninput="textNonLF.value = textWithLF.value.replace('\r', '').replace('\n', '');">
+    <div class="form-table">
+      <textarea class="form-elem" id="textWithLF" name="textWithLF"></textarea>
+      <output type="text" class="form-elem" id="textNonLF" name="textNonLF"></output><br/>
+    </div>
+  </form>
+  <button id="copy">Copy</button>
+  <script>
+  function copy() {
+    let range = document.createRange();
+    range.selectNodeContents(document.getElementById('textNonLF'));
+    let selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+  document.querySelector("#copy").addEventListener("click", copy);
+  </script>
+</body>
+</html>
