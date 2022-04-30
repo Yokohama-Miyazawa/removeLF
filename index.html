@@ -34,13 +34,23 @@ button {
   <button id="copy">Copy</button>
   <button id="delete">Delete</button>
   </div>
+  <div id="shortcuts">
+    ショートカットキー Shorcuts<br/>
+    ⌘A / Ctrl-A : 全選択 Select All<br/>
+    ⌘C / Ctrl-C : コピー Copy<br/>
+    ⌘K / Ctrl-K : 削除 Delete<br/>
+  </div>
+  <div id="about-deepl">
+  DeepLのアドオンを入れている場合は、⇧⌘Yで翻訳可能。
+  If you use the add-on from DeepL, you can translate the text with ⇧⌘Y.
+  </div>
   <script>
   document.querySelector("#textWithLF").addEventListener("input", () => {
     document.getElementById('textNonLF').value = document.getElementById('textWithLF').value.replace('\r', '').replace('\n', ' ');
   });
 
   document.querySelector("#copy").addEventListener("click", () => {
-    navigator.clipboard.writeText(document.getElementById('textNonLF').innerText);
+    navigator.clipboard.writeText(document.getElementById('textNonLF').value);
   });
 
   document.querySelector("#select-all").addEventListener("click", () => {
@@ -50,6 +60,24 @@ button {
 
   document.querySelector("#delete").addEventListener("click", () => {
     document.getElementById('textWithLF').value = '';
+  });
+
+  document.querySelector("html").addEventListener("keydown", (e) => {
+    if(e.ctrlKey || e.metaKey){
+      switch(e.code){
+        case 'KeyA':
+          document.querySelector("#select-all").click();
+          break;
+        case 'KeyC':
+          document.querySelector("#copy").click();
+          break;
+        case 'KeyK':
+          document.querySelector("#delete").click();
+          break;
+        default:
+          break;
+      }
+    }
   });
   </script>
 </body>
