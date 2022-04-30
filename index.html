@@ -13,33 +13,40 @@
   width: 40em;
   height: 30em;
 }
-output {
+#textNonLF {
   background-color: gainsboro;
 }
-#copy{
+button {
   font-size: 30px;
+  float: right;
 }
 </style>
 </head>
 <body>
-  <form oninput="textNonLF.value = textWithLF.value.replace('\r', '').replace('\n', ' ');">
+  <div id="main">
+  <form name="form">
     <div class="form-table">
-      <textarea class="form-elem" id="textWithLF" name="textWithLF"></textarea>
-      <output type="text" class="form-elem" id="textNonLF" name="textNonLF"></output><br/>
+      <textarea class="form-elem" id="textWithLF" name="textWithLF" autofocus oninput="textNonLF.value = textWithLF.value.replace('\r', '').replace('\n', ' ');"></textarea>
+      <textarea class="form-elem" id="textNonLF" name="textNonLF" readonly></textarea><br/>
     </div>
   </form>
+  <button id="select-all">Select All</button>
   <button id="copy">Copy</button>
+  <button id="delete">Delete</button>
+  </div>
   <script>
-  function copy() {
-    let range = document.createRange();
-    range.selectNodeContents(document.getElementById('textNonLF'));
-    let selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand('copy');
-    selection.removeAllRanges();
-  }
-  document.querySelector("#copy").addEventListener("click", copy);
+  document.querySelector("#copy").addEventListener("click", () => {
+    navigator.clipboard.writeText(document.getElementById('textNonLF').innerText);
+  });
+
+  document.querySelector("#select-all").addEventListener("click", () => {
+    document.form.textNonLF.focus();
+    document.form.textNonLF.select();
+  });
+
+  document.querySelector("#delete").addEventListener("click", () => {
+    document.getElementById('textWithLF').value = '';
+  });
   </script>
 </body>
 </html>
