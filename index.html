@@ -26,7 +26,7 @@ button {
   <div id="main">
   <form name="form">
     <div class="form-table">
-      <textarea class="form-elem" id="textWithLF" name="textWithLF" autofocus oninput="textNonLF.value = textWithLF.value.replace('\r', '').replace('\n', ' ');"></textarea>
+      <textarea class="form-elem" id="textWithLF" name="textWithLF" autofocus></textarea>
       <textarea class="form-elem" id="textNonLF" name="textNonLF" readonly></textarea><br/>
     </div>
   </form>
@@ -35,6 +35,10 @@ button {
   <button id="delete">Delete</button>
   </div>
   <script>
+  document.querySelector("#textWithLF").addEventListener("input", () => {
+    document.getElementById('textNonLF').value = document.getElementById('textWithLF').value.replace('\r', '').replace('\n', ' ');
+  });
+
   document.querySelector("#copy").addEventListener("click", () => {
     navigator.clipboard.writeText(document.getElementById('textNonLF').innerText);
   });
