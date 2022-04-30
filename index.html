@@ -22,7 +22,7 @@ output {
 </style>
 </head>
 <body>
-  <form oninput="textNonLF.value = textWithLF.value.replace('\r', '').replace('\n', '');">
+  <form oninput="textNonLF.value = textWithLF.value.replace('\r', '').replace('\n', ' ');">
     <div class="form-table">
       <textarea class="form-elem" id="textWithLF" name="textWithLF"></textarea>
       <output type="text" class="form-elem" id="textNonLF" name="textNonLF"></output><br/>
