@@ -46,7 +46,7 @@ button {
   </div>
   <script>
   document.querySelector("#textWithLF").addEventListener("input", () => {
-    document.getElementById('textNonLF').value = document.getElementById('textWithLF').value.replace('\r', '').replace('\n', ' ');
+    document.getElementById('textNonLF').value = document.getElementById('textWithLF').value.replaceAll('\r', '').replaceAll('\n', ' ');
   });
 
   document.querySelector("#copy").addEventListener("click", () => {
