@@ -33,12 +33,14 @@ button {
   <button id="select-all">Select All</button>
   <button id="copy">Copy</button>
   <button id="delete">Delete</button>
+  <button id="focus">Focus</button>
   </div>
   <div id="shortcuts">
     ショートカットキー Shorcuts<br/>
     ⌘A / Ctrl-A : 全選択 Select All<br/>
     ⌘C / Ctrl-C : コピー Copy<br/>
     ⌘K / Ctrl-K : 削除 Delete<br/>
+    ⌘; (⌘Semicolon) / Ctrl-; (Ctrl-Semicolon) : フォーカス Focus
   </div>
   <div id="about-deepl">
   DeepLのアドオンを入れている場合は、⇧⌘Yで翻訳可能。
@@ -62,6 +64,10 @@ button {
     document.getElementById('textWithLF').value = '';
   });
 
+  document.querySelector("#focus").addEventListener("click", () => {
+    document.getElementById('textWithLF').focus();
+  });
+
   document.querySelector("html").addEventListener("keydown", (e) => {
     if(e.ctrlKey || e.metaKey){
       switch(e.code){
@@ -73,6 +79,9 @@ button {
           break;
         case 'KeyK':
           document.querySelector("#delete").click();
+          break;
+        case 'Semicolon':
+          document.querySelector("#focus").click();
           break;
         default:
           break;
