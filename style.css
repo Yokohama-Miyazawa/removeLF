@@ -1,12 +1,12 @@
 .form-table {
-  display: flex;
-  flex-wrap: wrap;
+  width: 100vw;
 }
 
 .form-elem {
   font-size: 15pt;
-  width: 40em;
-  height: 30em;
+  width: 49%;
+  height: 35em;
+  resize: none;
 }
 
 #textNonLF {
