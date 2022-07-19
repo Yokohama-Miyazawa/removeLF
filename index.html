@@ -2,25 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>CR and LF remover</title>
-<style>
-.form-table {
-  display: flex;
-  flex-wrap: wrap;
-}
-.form-elem {
-  font-size: 15pt;
-  width: 40em;
-  height: 30em;
-}
-#textNonLF {
-  background-color: gainsboro;
-}
-button {
-  font-size: 30px;
-  float: right;
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CR and LF remover</title>    
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div id="main">
@@ -46,48 +30,6 @@ button {
   DeepLのアドオンを入れている場合は、⇧⌘Yで翻訳可能。
   If you use the add-on from DeepL, you can translate the text with ⇧⌘Y.
   </div>
-  <script>
-  document.querySelector("#textWithLF").addEventListener("input", () => {
-    document.getElementById('textNonLF').value = document.getElementById('textWithLF').value.replaceAll('\r', '').replaceAll('\n', ' ');
-  });
-
-  document.querySelector("#copy").addEventListener("click", () => {
-    navigator.clipboard.writeText(document.getElementById('textNonLF').value);
-  });
-
-  document.querySelector("#select-all").addEventListener("click", () => {
-    document.form.textNonLF.focus();
-    document.form.textNonLF.select();
-  });
-
-  document.querySelector("#delete").addEventListener("click", () => {
-    document.getElementById('textWithLF').value = '';
-  });
-
-  document.querySelector("#focus").addEventListener("click", () => {
-    document.getElementById('textWithLF').focus();
-  });
-
-  document.querySelector("html").addEventListener("keydown", (e) => {
-    if(e.ctrlKey || e.metaKey){
-      switch(e.code){
-        case 'KeyA':
-          document.querySelector("#select-all").click();
-          break;
-        case 'KeyC':
-          document.querySelector("#copy").click();
-          break;
-        case 'KeyK':
-          document.querySelector("#delete").click();
-          break;
-        case 'Semicolon':
-          document.querySelector("#focus").click();
-          break;
-        default:
-          break;
-      }
-    }
-  });
-  </script>
+  <script src="./script.js"></script>
 </body>
 </html>

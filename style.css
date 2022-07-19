@@ -1,0 +1,19 @@
+.form-table {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-elem {
+  font-size: 15pt;
+  width: 40em;
+  height: 30em;
+}
+
+#textNonLF {
+  background-color: gainsboro;
+}
+
+button {
+  font-size: 30px;
+  float: right;
+}
