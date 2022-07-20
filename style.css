@@ -1,3 +1,22 @@
+:root {
+  --main-text: #333;
+  --main-bg: #fff;
+  --non-lf: #dcdcdc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-text: #ddd;
+    --main-bg: #202020;
+    --non-lf: #343434;
+  }
+}
+
+body {
+  color: var(--main-text);
+  background-color: var(--main-bg);
+}
+
 .form-table {
   width: 100vw;
 }
@@ -7,10 +26,12 @@
   width: 49%;
   height: 35em;
   resize: none;
+  color: var(--main-text);
+  background-color: var(--main-bg);
 }
 
 #textNonLF {
-  background-color: gainsboro;
+  background-color: var(--non-lf);
 }
 
 button {
