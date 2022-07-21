@@ -1,12 +1,12 @@
 :root {
-  --main-text: #333;
-  --main-bg: #fff;
-  --non-lf: #dcdcdc;
+  --main-text: #000000;
+  --main-bg: #FFFFFF;
+  --non-lf: #DCDCDC;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --main-text: #ddd;
+    --main-text: #DDDDDD;
     --main-bg: #202020;
     --non-lf: #343434;
   }
