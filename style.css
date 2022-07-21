@@ -19,12 +19,13 @@ body {
 
 .form-table {
   width: 100vw;
+  height: 75vh;
 }
 
 .form-elem {
   font-size: 15pt;
   width: 49%;
-  height: 35em;
+  height: 98%;
   resize: none;
   color: var(--main-text);
   background-color: var(--main-bg);
